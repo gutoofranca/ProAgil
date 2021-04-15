@@ -8,13 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventosComponent implements OnInit {
 
-  eventos: any;
+  eventos: any = [];
+  imagemLargura = 50;
+  imagemMargem = 2;
+  mostrarImagem = false;
+  filtroLista = '';
 
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
     this.getEventos();
+  }
+
+  alternarImagem() {
+    this.mostrarImagem = !this.mostrarImagem;
   }
 
   // tslint:disable-next-line: typedef
